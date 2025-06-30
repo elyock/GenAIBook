@@ -1,13 +1,13 @@
 import tiktoken as tk
 
-def get_tokens(string: str, encoding_name: str) -> str:
+def get_tokens(string: str, encoding_name: str) -> list[int]:
     # Get the encoding
     encoding = tk.get_encoding(encoding_name)
     
     # Encode the string
     return encoding.encode(string)
 
-def get_string(tokens: str, encoding_name: str) -> str:
+def get_string(tokens: list[int], encoding_name: str) -> str:
     # Get the encoding
     encoding = tk.get_encoding(encoding_name)
     
