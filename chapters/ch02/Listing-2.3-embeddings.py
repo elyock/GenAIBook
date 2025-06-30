@@ -1,9 +1,13 @@
 import os
+from dotenv import load_dotenv
 from openai import OpenAI
 
-client = OpenAI(api_key='your-api-key')
+load_dotenv()
 
-def get_embedding(text):
+client = OpenAI(api_key=os.getenv("OPENAI_API_BOOK_KEY"))
+
+
+def get_embedding(text: str) -> list[float]:
     response = client.embeddings.create(
         model="text-embedding-ada-002",
         input=text)
