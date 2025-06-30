@@ -1,12 +1,16 @@
 # Listing: 1.1 - Basic Hello World example using the OpenAI API
 
 import os
-from openai import OpenAI
+from dotenv import load_dotenv
+from openai import OpenAI, api_key
 
+load_dotenv()
+
+# Define the model to use
 GPT_MODEL = "gpt-3.5-turbo"
 
-# Replace with your actual OpenAI API key
-client = OpenAI(api_key='your-api-key')
+key = os.getenv("OPENAI_API_BOOK_KEY")
+client = OpenAI(api_key=key)
 
 # Generate English text
 response_english = client.chat.completions.create(
