@@ -9,8 +9,7 @@ load_dotenv()
 # Define the model to use
 GPT_MODEL = "gpt-3.5-turbo"
 
-key = os.getenv("OPENAI_API_BOOK_KEY")
-client = OpenAI(api_key=key)
+client = OpenAI(api_key=os.getenv("OPENAI_API_BOOK_KEY"))
 
 # Generate English text
 response_english = client.chat.completions.create(
