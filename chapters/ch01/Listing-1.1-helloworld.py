@@ -22,7 +22,8 @@ response_english = client.chat.completions.create(
     ],
     max_tokens=50
 )
-english_text = response_english.choices[0].message.content.strip()
+content = response_english.choices[0].message.content
+english_text = content.strip() if content is not None else ""
 print(english_text)
 
 # Translate English text to French
@@ -38,4 +39,5 @@ response_french = client.chat.completions.create(
     max_tokens=100
 )
 # This prints the translation to French
-print(response_french.choices[0].message.content.strip())
+french_content = response_french.choices[0].message.content
+print(french_content.strip() if french_content is not None else "")
