@@ -1,4 +1,4 @@
-#include < String.h> // for strlen()
+#include <string.h> // for strlen()
 
 // reverse the given null-terminated String in place
 void inplace_reverse(char * str)
