@@ -1,4 +1,6 @@
 # Book - Generative AI in Action
+N.B. (elyock): Modified book-environment.yml to support MacOS. Other code changes to fix type hints and/or changes in model features.
+
 Welcome to the code repo associated with my book [**Generative AI in Action**](https://www.manning.com/books/generative-ai-in-action), published by Manning.
 
 Note: The book is also available on [Amazon](https://a.co/d/cFDrfcp).
