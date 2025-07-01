@@ -1,7 +1,7 @@
-def inplace_reverse(str):
-    if str:
+def inplace_reverse(s: str) -> str:
+    if s:
         # Convert the String to a list since strings are immutable in Python
-        lst = list(str)
+        lst = list(s)
 
         # Initialize two pointers at the start and end of the list
         start = 0
@@ -18,4 +18,4 @@ def inplace_reverse(str):
 
         # Convert the list back into a string
         return ''.join(lst)
-    return str
+    return s
