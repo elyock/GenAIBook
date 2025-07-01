@@ -1,4 +1,3 @@
-#include <stdio.h>  // for printf()
 #include <string.h> // for strlen()
 
 // reverse the given null-terminated String in place
@@ -27,15 +26,4 @@ void inplace_reverse(char * str)
     }
 #   undef XOR_SWAP
   }
-}
-
-int main() {
-    // Test the inplace_reverse function
-    char test_str[] = "Hello World!";
-    
-    printf("Original string: %s\n", test_str);
-    inplace_reverse(test_str);
-    printf("Reversed string: %s\n", test_str);
-    
-    return 0;
 }
