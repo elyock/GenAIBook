@@ -1,18 +1,12 @@
 # Variant of Listing 3.1 - list models available in OpenAI for the current organization
 
 import os
-import openai
+from dotenv import load_dotenv
 from openai import OpenAI
 
-api_key_file = '../../OPENAI_API_BOOK_KEY.key'
+load_dotenv()
 
-# function to read the key
-def read_api_key(file_path: str) -> str:
-    with open(file_path, 'r') as file:
-        api_key = file.read().strip()
-    return api_key
-
-client = OpenAI(api_key=read_api_key(api_key_file))
+client = OpenAI(api_key=os.getenv("OPENAI_API_BOOK_KEY"))
 
 # Call the models API to retrieve a list of available models
 models = client.models.list()
