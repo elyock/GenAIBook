@@ -58,5 +58,5 @@ while True:
     assistant_content = response.choices[0].message.content or ""
     conversation.append({"role": "assistant", "content": assistant_content})
     print("\n" + assistant_content)
-    print("(Tokens used: " + str(response.usage.total_tokens)  + ")")
+    print("(Tokens used: " + str(response.usage.total_tokens)  + ")") # type: ignore
     
