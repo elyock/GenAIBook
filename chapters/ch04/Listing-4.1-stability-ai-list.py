@@ -3,6 +3,9 @@
 import os
 import requests
 import json
+from dotenv import load_dotenv
+
+load_dotenv()
 
 api_host = os.getenv('API_HOST', 'https://api.stability.ai')
 url = f"{api_host}/v1/engines/list"
