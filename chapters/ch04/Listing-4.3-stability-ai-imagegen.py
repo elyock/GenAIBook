@@ -3,6 +3,9 @@ import os
 import requests
 import datetime
 import re
+from dotenv import load_dotenv
+
+load_dotenv()
 
 engine_id = "stable-diffusion-xl-1024-v1-0"
 api_host = "https://api.stability.ai"
@@ -23,7 +26,7 @@ if not os.path.isdir(image_dir):
     os.mkdir(image_dir)
 
 # Function to clean up filenames
-def valid_filename(s):                                      
+def valid_filename(s: str) -> str:                                      
     s = re.sub(r'[^\w_.)( -]', '', s).strip()
     return re.sub(r'[\s]+', '_', s)
 
