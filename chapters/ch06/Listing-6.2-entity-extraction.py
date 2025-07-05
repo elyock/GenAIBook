@@ -1,10 +1,19 @@
 import os
 from openai import AzureOpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
+
+aoai_endpoint = os.getenv("AOAI_GPT-35-TURBO_ENDPOINT")
+aoai_key = os.getenv("AOAI_GPT-35-TURBO_KEY")
+
+if aoai_endpoint is None or aoai_key is None:
+    raise ValueError("AOAI environment variables must be set.")
 
 client = AzureOpenAI(
-    azure_endpoint=os.getenv("AOAI_ENDPOINT"),
-    api_version="2024-05-01-preview",
-    api_key=os.getenv("AOAI_KEY")
+    azure_endpoint=aoai_endpoint,
+    api_version="2024-12-01-preview",
+    api_key=aoai_key
 )
 GPT_MODEL = "gpt-35-turbo"
 
@@ -23,7 +32,8 @@ while True:
 
     response = client.chat.completions.create(
         model = GPT_MODEL,
-        messages = conversation)
+        messages = conversation) # type: ignore
 
-    conversation.append({"role": "assistant", "content": response.choices[0].message.content})
-    print("\nAI:" + response.choices[0].message.content + "\n")
+    assistant_content = response.choices[0].message.content or ""
+    conversation.append({"role": "assistant", "content": assistant_content})
+    print("\nAI:" + assistant_content + "\n")
